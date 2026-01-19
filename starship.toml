@@ -1,0 +1,78 @@
+# Starship Configuration with Everforest Dark Theme
+# Place this file at ~/.config/starship.toml
+
+format = """
+[](#a7c080)\
+$username\
+[](bg:#343f44 fg:#a7c080)\
+$directory\
+[](fg:#343f44 bg:#3d484d)\
+$git_branch\
+$git_status\
+[](fg:#3d484d bg:#2d353b)\
+$time\
+[ ](fg:#2d353b)\
+$character"""
+
+# Username
+[username]
+show_always = true
+style_user = "bg:#a7c080 fg:#2d353b bold"
+style_root = "bg:#e67e80 fg:#2d353b bold"
+format = '[$user ]($style)'
+
+# Directory
+[directory]
+style = "fg:#a7c080 bg:#343f44"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+# Git Branch
+[git_branch]
+symbol = ""
+style = "bg:#3d484d fg:#a7c080"
+format = '[ $symbol $branch ]($style)'
+
+# Git Status
+[git_status]
+style = "bg:#3d484d fg:#e67e80"
+format = '[$all_status$ahead_behind ]($style)'
+conflicted = "🏳"
+up_to_date = ""
+untracked = " "
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+stashed = " "
+modified = " "
+staged = '[++\($count\)](bg:#3d484d fg:#a7c080)'
+renamed = "»"
+deleted = " "
+
+# Time
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#2d353b fg:#9da9a0"
+format = '[  $time ]($style)'
+
+# Character
+[character]
+success_symbol = '[➜](bold fg:#a7c080)'
+error_symbol = '[➜](bold fg:#e67e80)'
+
+# Everforest Dark Color Palette Reference:
+# Background: #2d353b, #343f44, #3d484d, #475258
+# Foreground: #d3c6aa
+# Green: #a7c080
+# Red: #e67e80
+# Yellow: #dbbc7f
+# Orange: #e69875
+# Gray: #9da9a0
