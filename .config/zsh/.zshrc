@@ -2,10 +2,7 @@ zmodload zsh/complist
 autoload -U compinit && compinit
 autoload -U colors && colors
 
-export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin:$XDG_BIN_HOME"
-
 
 # cmp opts
 zstyle ':completion:*' menu select # tab opens cmp menu
@@ -30,3 +27,4 @@ unsetopt prompt_sp # don't autoclean blanklines
 
 HISTFILE="$XDG_CACHE_HOME/zsh_history" 
 eval "$(starship init zsh)"
+eval "$(mise activate zsh)"
