@@ -27,7 +27,7 @@ cd ~/.config
 git clone  dotfiles
 ```
 
-1. Run the setup script:
+2. Run the setup script:
 
 ```bash
 cd dotfiles
@@ -35,7 +35,7 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-1. Follow the interactive prompts to choose which components to install.
+3. Follow the interactive prompts to choose which components to install.
 
 ## What the Script Does
 
