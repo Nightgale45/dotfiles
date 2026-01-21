@@ -18,43 +18,37 @@ $character"""
 [username]
 show_always = true
 style_user = "bg:#a7c080 fg:#2d353b bold"
-style_root = "bg:#e67e80 fg:#2d353b bold"
+style_root = "bg:#83c092 fg:#2d353b bold"
 format = '[$user ]($style)'
 
 # Directory
 [directory]
 style = "fg:#a7c080 bg:#343f44"
-format = "[ $path ]($style)"
-truncation_length = 3
+format = "[ 󰉋  $path ]($style)"
+truncation_length = 5
 truncation_symbol = "…/"
-
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
 
 # Git Branch
 [git_branch]
-symbol = ""
+symbol = "🌱" 
 style = "bg:#3d484d fg:#a7c080"
 format = '[ $symbol $branch ]($style)'
 
 # Git Status
 [git_status]
 style = "bg:#3d484d fg:#e67e80"
-format = '[$all_status$ahead_behind ]($style)'
-conflicted = "🏳"
-up_to_date = ""
-untracked = " "
-ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-behind = "⇣${count}"
-stashed = " "
-modified = " "
-staged = '[++\($count\)](bg:#3d484d fg:#a7c080)'
-renamed = "»"
-deleted = " "
+format = '[$all_status$ahead_behind ]($style) '
+conflicted = "🏳 "
+up_to_date = "✓ "
+untracked = "🤷 "
+ahead = "⇡${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+behind = "⇣${count} "
+stashed = "📦 "
+modified = "📝 "
+staged = '[++\($count\)](bg:#3d484d fg:#a7c080) '
+renamed = "» "
+deleted = "🗑 "
 
 # Time
 [time]

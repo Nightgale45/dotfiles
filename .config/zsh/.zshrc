@@ -24,6 +24,14 @@ setopt extended_glob # match ~ # ^
 setopt interactive_comments # allow comments in shell
 unsetopt prompt_sp # don't autoclean blanklines
 
+# alias
+alias gst='git status'
+alias gpush='git push origin'
+alias gpull='git pull origin'
+alias gcm='git commit -m'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+
 
 HISTFILE="$XDG_CACHE_HOME/zsh_history" 
 eval "$(starship init zsh)"
