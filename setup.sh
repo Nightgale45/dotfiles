@@ -49,10 +49,6 @@ prompt_yn() {
 print_info "=== Dotfiles Setup Script ==="
 echo ""
 
-# Update package list
-print_info "Updating package lists..."
-sudo apt update
-
 # Install GNU Stow
 print_info "Installing GNU Stow..."
 if command_exists stow; then
@@ -69,6 +65,15 @@ if command_exists rg; then
 else
     sudo apt install -y ripgrep
     print_success "Ripgrep installed successfully"
+fi
+
+# Install xclip
+print_info "Installing xclip..."
+if command_exists xclip; then
+    print_warning "xclip is already installed"
+else
+    sudo apt install -y xclip
+    print_success "xclip installed successfully"
 fi
 
 # Install Zsh
@@ -166,6 +171,7 @@ echo "     zsh --version"
 echo "     nvim --version"
 echo "     starship --version"
 echo "     mise --version"
+echo "     xclip -version"
 echo ""
 
 # Offer to change shell now

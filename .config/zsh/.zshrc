@@ -31,7 +31,7 @@ alias gpull='git pull origin'
 alias gcm='git commit -m'
 alias gco='git checkout'
 alias gcob='git checkout -b'
-
+alias v='nvim'
 
 HISTFILE="$XDG_CACHE_HOME/zsh_history" 
 eval "$(starship init zsh)"

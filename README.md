@@ -41,11 +41,12 @@ chmod +x setup.sh
 
 1. **Updates system packages** - Ensures apt is up to date
 2. **Installs GNU Stow** - For managing dotfile symlinks
-3. **Installs Mise** - Universal tool version manager
-4. **Installs Zsh** - Modern shell replacement
-5. **Installs Starship** - Cross-shell prompt
-6. **Installs Neovim** - Latest stable release
-7. **Optionally installs Kitty** - Terminal emulator with desktop integration
+3. **Instals xclip** - Clipboard integration for terminal
+4. **Installs Mise** - Universal tool version manager
+5. **Installs Zsh** - Modern shell replacement
+6. **Installs Starship** - Cross-shell prompt
+7. **Installs Neovim** - Latest stable release
+8. **Optionally installs Kitty** - Terminal emulator with desktop integration
 
 ## Manual Installation
 
@@ -65,22 +66,22 @@ echo 'export ZDOTDIR="$HOME/.config/zsh"' > ~/.zshenv
 
 This tells Zsh to look for `.zshrc` in `~/.config/zsh/` instead of `~/.zshrc`.
 
-1. **Create symlinks with Stow**:
+2. **Create symlinks with Stow**:
 
 ```bash
 cd ~/.config/dotfiles
 stow .config
 ```
 
-1. **Change your default shell to Zsh**:
+3. **Change your default shell to Zsh**:
 
 ```bash
 chsh -s $(which zsh)
 ```
 
-1. **Log out and log back in** for the shell change to take effect.
+4. **Log out and log back in** for the shell change to take effect.
 
-2. **Verify installations**:
+5. **Verify installations**:
 
 ```bash
 zsh --version
@@ -125,6 +126,13 @@ sudo apt install stow
 ```bash
 sudo apt install ripgrep
 ```
+
+### Install xclip
+```
+sudo apt install xclip
+```
+
+xclip enables clipboard integration with the terminal, allowing you to copy and past between Neovim and other applications
 
 ### Install Mise
 

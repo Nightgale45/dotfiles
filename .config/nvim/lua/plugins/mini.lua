@@ -33,9 +33,13 @@ return { -- Collection of various small independent plugins/modules
 
 		local MiniFiles = require("mini.files")
 
-		MiniFiles.setup()
+		MiniFiles.setup({
+			mappings = {
+				close = "<Esc>",
+			},
+		})
 
-		vim.keymap.set("n", "<leader>fe", "<cmd>lua MiniFiles.open()<cr> ", { desc = "[F]ile [E]xplorer" })
+		vim.keymap.set("n", "<leader>f", "<cmd>lua MiniFiles.open()<cr> ", { desc = "[F]ile Explorer" })
 
 		vim.keymap.set("n", "-", function()
 			local buf_name = vim.api.nvim_buf_get_name(0)
