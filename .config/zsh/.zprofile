@@ -6,3 +6,5 @@ export XDG_BIN_HOME="$HOME/.local/bin"
 
 # .zshenv is at HOME which points here. bootstrap .zshrc to ~/.config/zsh/.zshrc, any other zsh config files can also reside here
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export GOPATH="$XDG_DATA_HOME/go"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"

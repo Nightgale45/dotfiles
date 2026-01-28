@@ -1,6 +1,3 @@
-# Starship Configuration with Everforest Dark Theme
-# Place this file at ~/.config/starship.toml
-
 format = """
 [](#a7c080)\
 $username\
@@ -11,7 +8,7 @@ $git_branch\
 $git_status\
 [](fg:#3d484d bg:#2d353b)\
 $time\
-[ ](fg:#2d353b)\
+[](fg:#475258)\
 $character"""
 
 # Username

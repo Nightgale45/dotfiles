@@ -126,6 +126,30 @@ else
     print_success "Neovim installed successfully"
 fi
 
+# Install Tmux
+print_info "Installing Tmux..."
+if command_exists tmux; then
+    print_warning "Tmux is already installed"
+else
+    sudo apt install -y tmux
+    print_success "Tmux installed successfully"
+fi
+
+# Optional: Install Tmux Plugin Manager (TPM)
+echo ""
+if prompt_yn "Do you want to install Tmux Plugin Manager (TPM)?"; then
+    if [ -d ~/.tmux/plugins/tpm ]; then
+        print_warning "TPM is already installed"
+    else
+        print_info "Installing TPM..."
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+        print_success "TPM installed successfully"
+        print_info "After symlinking your tmux.conf, start Tmux and press 'Ctrl+a' then 'Shift+i' to install plugins"
+    fi
+else
+    print_info "Skipping TPM installation"
+fi
+
 # Optional: Install Kitty
 echo ""
 if prompt_yn "Do you want to install Kitty terminal?"; then
@@ -161,16 +185,22 @@ echo "  1. Create symlinks with Stow:"
 echo "     cd ~/.config/dotfiles"
 echo "     stow .config"
 echo ""
-echo "  2. Change your default shell to Zsh:"
+echo "  2. If Tmux is running, reload config:"
+echo "     tmux source ~/.config/tmux/tmux.conf"
+echo ""
+echo "  3. If TPM was installed, start Tmux and press 'Ctrl+a' then 'Shift+i' to install plugins"
+echo ""
+echo "  4. Change your default shell to Zsh:"
 echo "     chsh -s \$(which zsh)"
 echo ""
-echo "  3. Log out and log back in for shell changes to take effect"
+echo "  5. Log out and log back in for shell changes to take effect"
 echo ""
-echo "  4. Verify installations:"
+echo "  6. Verify installations:"
 echo "     zsh --version"
 echo "     nvim --version"
 echo "     starship --version"
 echo "     mise --version"
+echo "     tmux -V"
 echo "     xclip -version"
 echo ""
 

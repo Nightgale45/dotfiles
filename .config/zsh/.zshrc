@@ -32,7 +32,17 @@ alias gcm='git commit -m'
 alias gco='git checkout'
 alias gcob='git checkout -b'
 alias v='nvim'
+alias dockerprune='docker system prune -a'
+alias dockerinfo='docker system df'
+alias dockerinfov='docker system df -v'
+alias sudo='sudo '
 
 HISTFILE="$XDG_CACHE_HOME/zsh_history" 
+
+#custom exports
+# export GOPATH="$XDG_DATA_HOME/go"
+
+
+#eval to start up setup.sh commands
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"

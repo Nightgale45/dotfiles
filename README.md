@@ -1,12 +1,14 @@
 # Dotfiles Setup
 
-A streamlined setup script for configuring a Linux development environment with Neovim, Zsh, Starship prompt, and optional Kitty terminal.
+A streamlined setup script for configuring a Linux development environment with Neovim, Zsh, Starship prompt, Tmux, and optional Kitty terminal.
 
 ## Features
 
 - **Zsh** - Modern shell with improved features
 - **Starship** - Fast, customizable prompt
 - **Neovim** - Latest version from official releases
+- **Tmux** - Terminal multiplexer for managing multiple sessions
+- **TPM** (Optional) - Tmux Plugin Manager
 - **Mise** - Unified tool version manager
 - **GNU Stow** - Symlink manager for dotfiles
 - **Kitty** (Optional) - GPU-accelerated terminal emulator
@@ -21,12 +23,6 @@ A streamlined setup script for configuring a Linux development environment with 
 ## Quick Start
 
 1. Clone this repository to your `~/.config` directory:
-
-```bash
-cd ~/.config
-git clone  dotfiles
-```
-
 2. Run the setup script:
 
 ```bash
@@ -41,12 +37,14 @@ chmod +x setup.sh
 
 1. **Updates system packages** - Ensures apt is up to date
 2. **Installs GNU Stow** - For managing dotfile symlinks
-3. **Instals xclip** - Clipboard integration for terminal
+3. **Installs xclip** - Clipboard integration for terminal
 4. **Installs Mise** - Universal tool version manager
 5. **Installs Zsh** - Modern shell replacement
 6. **Installs Starship** - Cross-shell prompt
 7. **Installs Neovim** - Latest stable release
-8. **Optionally installs Kitty** - Terminal emulator with desktop integration
+8. **Installs Tmux** - Terminal multiplexer
+9. **Optionally installs TPM** - Tmux Plugin Manager
+10. **Optionally installs Kitty** - Terminal emulator with desktop integration
 
 ## Manual Installation
 
@@ -88,6 +86,54 @@ zsh --version
 nvim --version
 starship --version
 mise --version
+tmux -V
+```
+
+## Custom Tmux Keybindings
+
+This configuration uses custom keybindings for better ergonomics:
+
+### Prefix Key
+- **Prefix**: `Ctrl+a` (instead of default `Ctrl+b`)
+
+### Window Management
+- `Ctrl+a` then `n` - Next window
+- `Ctrl+a` then `p` - Previous window
+- `Ctrl+a` then `0-9` - Jump to window 0-9
+- `Ctrl+a` then `w` - List all windows
+
+### Pane Management
+- `Ctrl+a` then `|` - Split pane vertically (left/right)
+- `Ctrl+a` then `-` - Split pane horizontally (top/bottom)
+- `Ctrl+h/j/k/l` - Navigate between panes (Vim-style, auto-zoom enabled)
+- `Ctrl+a` then `z` - Toggle zoom on current pane
+- `Ctrl+a` then `x` - Close current pane
+
+### Session Management
+- `Ctrl+a` then `d` - Detach from session
+- `Ctrl+a` then `s` - List sessions
+- `Ctrl+a` then `$` - Rename session
+
+### Copy Mode
+- `Ctrl+a` then `[` - Enter copy mode (use Vim keybindings)
+- `Ctrl+a` then `v` - Open scrollback buffer in Neovim
+
+### Plugin Manager (TPM)
+- `Ctrl+a` then `Shift+i` - Install plugins
+- `Ctrl+a` then `Shift+u` - Update plugins
+- `Ctrl+a` then `Alt+u` - Uninstall plugins
+
+### Reloading Configuration
+
+After editing your `tmux.conf`, reload it without restarting Tmux:
+
+```bash
+tmux source ~/.config/tmux/tmux.conf
+```
+
+Or from within Tmux:
+```
+Ctrl+a then :source-file ~/.config/tmux/tmux.conf
 ```
 
 ## Directory Structure
@@ -96,6 +142,8 @@ mise --version
 ~/.config/dotfiles/
 ├── .config/
 │   ├── nvim/
+│   ├── tmux/
+│   │   └── tmux.conf
 │   ├── kitty/
 │   ├── starship.toml
 │   └── ... (other configs)
@@ -106,6 +154,20 @@ mise --version
 After running `stow .config`, all directories in `dotfiles/.config/` will be symlinked to `~/.config/`.
 
 ## Manual Setup Guide
+
+### Install Tmux
+
+```bash
+sudo apt install tmux
+```
+
+### Install Tmux Plugin Manager (TPM)
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+After installation, start Tmux and press `Ctrl+a` then `Shift+i` to install plugins.
 
 ### Install Kitty
 
@@ -128,11 +190,12 @@ sudo apt install ripgrep
 ```
 
 ### Install xclip
-```
+
+```bash
 sudo apt install xclip
 ```
 
-xclip enables clipboard integration with the terminal, allowing you to copy and past between Neovim and other applications
+xclip enables clipboard integration with the terminal, allowing you to copy and paste between Neovim and other applications.
 
 ### Install Mise
 
@@ -180,6 +243,10 @@ stow .config
 **Zsh not default shell**: Run `chsh -s $(which zsh)` and log out/in.
 
 **Neovim not in PATH**: Ensure `/opt/nvim-linux-x86_64/bin` is in your PATH.
+
+**Tmux configuration not loading**: Ensure your `tmux.conf` is in `~/.config/tmux/tmux.conf` or create a symlink from `~/.tmux.conf` to your config location.
+
+**TPM plugins not installing**: Make sure TPM is installed at `~/.tmux/plugins/tpm` and press `Ctrl+a` then `Shift+i` inside a Tmux session.
 
 ## Uninstalling
 

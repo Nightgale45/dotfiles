@@ -235,6 +235,7 @@ return {
 					-- But for many setups, the LSP (`ts_ls`) will work just fine
 					-- ts_ls = {},
 					--
+					gopls = {},
 					lua_ls = {
 						-- cmd = { ... },
 						-- filetypes = { ... },
