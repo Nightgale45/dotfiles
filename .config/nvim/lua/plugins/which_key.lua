@@ -47,10 +47,11 @@ return { -- Useful plugin to show you pending keybinds.
 
 		-- Document existing key chains
 		spec = {
-			{ "<leader>a", group = "[A]uto" },
+			{ "<leader>a", group = "[A]I" },
 			{ "<leader>s", group = "[S]earch", mode = { "n", "v" } },
 			{ "<leader>t", group = "[T]oggle" },
 			{ "<leader>g", group = "[G]it", mode = { "n", "v" } },
+			{ "<leader>d", group = "[D]ebug" },
 			{ "gr", group = "LSP Actions", mode = { "n" } },
 		},
 	},
