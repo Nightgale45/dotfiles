@@ -33,11 +33,18 @@ return { -- Autoformat
 		formatters_by_ft = {
 			lua = { "stylua" },
 			markdown = { "prettierd" },
+			go = { "gofmt" },
 			-- Conform can also run multiple formatters sequentially
 			-- python = { "isort", "black" },
 			--
 			-- You can use 'stop_after_first' to run the first available formatter from the list
-			-- javascript = { "prettierd", "prettier", stop_after_first = true },
+			-- javascript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
+			javascript = { "eslint_d", "prettierd" },
+			typescript = { "eslint_d", "prettierd" },
+			typescriptreact = { "eslint_d", "prettierd" },
+			javascriptreact = { "eslint_d", "prettierd" },
+			json = { "prettierd" },
+			yaml = { "prettierd" },
 		},
 	},
 }

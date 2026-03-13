@@ -12,6 +12,7 @@ A streamlined setup script for configuring a Linux development environment with 
 - **Mise** - Unified tool version manager
 - **GNU Stow** - Symlink manager for dotfiles
 - **Kitty** (Optional) - GPU-accelerated terminal emulator
+- **Tree-sitter CLI** - Required for Neovim treesitter parsers
 
 ## Prerequisites
 
@@ -94,15 +95,18 @@ tmux -V
 This configuration uses custom keybindings for better ergonomics:
 
 ### Prefix Key
+
 - **Prefix**: `Ctrl+a` (instead of default `Ctrl+b`)
 
 ### Window Management
+
 - `Ctrl+a` then `n` - Next window
 - `Ctrl+a` then `p` - Previous window
 - `Ctrl+a` then `0-9` - Jump to window 0-9
 - `Ctrl+a` then `w` - List all windows
 
 ### Pane Management
+
 - `Ctrl+a` then `|` - Split pane vertically (left/right)
 - `Ctrl+a` then `-` - Split pane horizontally (top/bottom)
 - `Ctrl+h/j/k/l` - Navigate between panes (Vim-style, auto-zoom enabled)
@@ -110,15 +114,18 @@ This configuration uses custom keybindings for better ergonomics:
 - `Ctrl+a` then `x` - Close current pane
 
 ### Session Management
+
 - `Ctrl+a` then `d` - Detach from session
 - `Ctrl+a` then `s` - List sessions
 - `Ctrl+a` then `$` - Rename session
 
 ### Copy Mode
+
 - `Ctrl+a` then `[` - Enter copy mode (use Vim keybindings)
 - `Ctrl+a` then `v` - Open scrollback buffer in Neovim
 
 ### Plugin Manager (TPM)
+
 - `Ctrl+a` then `Shift+i` - Install plugins
 - `Ctrl+a` then `Shift+u` - Update plugins
 - `Ctrl+a` then `Alt+u` - Uninstall plugins
@@ -132,6 +139,7 @@ tmux source ~/.config/tmux/tmux.conf
 ```
 
 Or from within Tmux:
+
 ```
 Ctrl+a then :source-file ~/.config/tmux/tmux.conf
 ```
@@ -229,6 +237,20 @@ Optionally add to your PATH in `~/.zshrc`:
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 ```
 
+### Install Tree-sitter CLI
+
+Required for Neovim to compile treesitter parsers:
+
+```bash
+npm install -g tree-sitter-cli
+```
+
+Or via Cargo (if you have Rust installed):
+
+```bash
+cargo install tree-sitter-cli
+```
+
 ### Create Symlinks
 
 ```bash
@@ -237,6 +259,8 @@ stow .config
 ```
 
 ## Troubleshooting
+
+**Neovim treesitter parsers failing**: Ensure `tree-sitter-cli` is installed (`npm install -g tree-sitter-cli` or `cargo install tree-sitter-cli`). This is required to compile parsers.
 
 **Stow conflicts**: If stow reports conflicts, you may have existing config files. Back them up and remove them before running stow.
 
